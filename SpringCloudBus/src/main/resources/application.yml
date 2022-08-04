@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: TeacherService
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/teachers/**
+        - id: StudentService
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/students/**
+        - id: CourseService
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/courses/**
+        - id: Assingmentservice
+          uri: http://localhost:8084/
+          predicates:
+            - Path=/assignments/**
